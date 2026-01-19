@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Bee - Auth</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="auth-container">
+    <h1>Service Bee</h1>
+    <p class="subtitle">Local Services, Simplified</p>
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm" class="auth-form">
+        <h2>Login</h2>
+
+        <label>Login As</label>
+        <select id="loginRole">
+            <option value="user">User</option>
+            <option value="company">Service Provider</option>
+        </select>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter email" required>
+
+        <label>Password</label>
+        <input type="password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
+
+        <p class="switch-text">
+            Don’t have an account?
+            <a href="#" id="showSignup">Sign up</a>
+        </p>
+    </form>
+
+    <!-- SIGNUP FORM -->
+    <form id="signupForm" class="auth-form hidden">
+        <h2>Sign Up</h2>
+
+        <label>Register As</label>
+        <select id="signupRole">
+            <option value="user">User</option>
+            <option value="company">Service Provider</option>
+        </select>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter full name" required>
+
+        <div id="companyFields" class="hidden">
+            <label>Company Name</label>
+            <input type="text" placeholder="Enter company name">
+
+            <label>Service Type</label>
+            <input type="text" placeholder="e.g. Plumber, Electrician">
+        </div>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter email" required>
+
+        <label>Password</label>
+        <input type="password" placeholder="Create password" required>
+
+        <button type="submit">Sign Up</button>
+
+        <p class="switch-text">
+            Already have an account?
+            <a href="#" id="showLogin">Login</a>
+        </p>
+    </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
