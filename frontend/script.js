@@ -53,7 +53,8 @@ loginForm.addEventListener("submit", async (e) => {
         return;
     }
 
-    alert("Login successful");
+    localStorage.setItem("token", result.token);
+    window.location.href = "dashboard.html";
 });
 
 
@@ -61,18 +62,16 @@ loginForm.addEventListener("submit", async (e) => {
 signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const inputs = signupForm.querySelectorAll("input");
-
     const data = {
         role: signupRole.value,
-        name: inputs[0].value,
-        email: inputs[inputs.length - 2].value,
-        password: inputs[inputs.length - 1].value
+        name: signupForm.querySelector('input[placeholder="Enter full name"]').value,
+        email: signupForm.querySelector('input[type="email"]').value,
+        password: signupForm.querySelector('input[type="password"]').value
     };
 
     if (signupRole.value === "company") {
-        data.companyName = inputs[1].value;
-        data.serviceType = inputs[2].value;
+        data.companyName = signupForm.querySelector('input[placeholder="Enter company name"]').value;
+        data.serviceType = signupForm.querySelector('input[placeholder="e.g. Plumber, Electrician"]').value;
     }
 
     await fetch("/api/signup", {

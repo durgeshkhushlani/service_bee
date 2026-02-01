@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verify Email</title>
+</head>
+<body>
+
+  <h2>Verify Your Email</h2>
+
+  <input type="email" id="email" placeholder="Email" />
+  <br><br>
+  <input type="text" id="otp" placeholder="Enter OTP" />
+  <br><br>
+
+  <button onclick="verifyOtp()">Verify OTP</button>
+
+  <p id="msg"></p>
+
+  <script>
+    async function verifyOtp() {
+      const email = document.getElementById("email").value;
+      const otp = document.getElementById("otp").value;
+
+      const res = await fetch("/api/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, otp })
+      });
+
+      const data = await res.json();
+      document.getElementById("msg").innerText = data.message;
+
+      if (res.ok) {
+        setTimeout(() => {
+          window.location.href = "/login.html";
+        }, 1500);
+      }
+    }
+  </script>
+
+</body>
+</html>
