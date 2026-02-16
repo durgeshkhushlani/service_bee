@@ -1,42 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Verify Email</title>
+  <meta charset="UTF-8">
+  <title>Service Bee - Verify Email</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 
-  <h2>Verify Your Email</h2>
+<body class="auth-body">
 
-  <input type="email" id="email" placeholder="Email" />
-  <br><br>
-  <input type="text" id="otp" placeholder="Enter OTP" />
-  <br><br>
+  <div class="auth-container">
+    <h1>Verify Email</h1>
+    <p class="subtitle">Enter the OTP sent to your email</p>
 
-  <button onclick="verifyOtp()">Verify OTP</button>
-
-  <p id="msg"></p>
+    <div class="auth-form">
+      <input type="email" id="email" placeholder="Email" readonly>
+      <input type="text" id="otp" placeholder="Enter OTP">
+      <button onclick="verifyOtp()">Verify OTP</button>
+      <p id="msg" style="margin-top: 10px; font-weight: bold;"></p>
+    </div>
+  </div>
 
   <script>
+    // Pre-fill email from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const emailParam = urlParams.get('email');
+    if (emailParam) {
+      document.getElementById("email").value = emailParam;
+    }
+
     async function verifyOtp() {
       const email = document.getElementById("email").value;
       const otp = document.getElementById("otp").value;
+      const msg = document.getElementById("msg");
 
-      const res = await fetch("/api/verify-otp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, otp })
-      });
+      if (!email || !otp) {
+        msg.innerText = "Please enter both Email and OTP";
+        msg.style.color = "red";
+        return;
+      }
 
-      const data = await res.json();
-      document.getElementById("msg").innerText = data.message;
+      try {
+        const res = await fetch("/api/verify-otp", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, otp })
+        });
 
-      if (res.ok) {
-        setTimeout(() => {
-          window.location.href = "/login.html";
-        }, 1500);
+        const data = await res.json();
+
+        if (res.ok) {
+          msg.innerText = "Verification Successful! Redirecting...";
+          msg.style.color = "green";
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 1500);
+        } else {
+          msg.innerText = data.message || "Verification failed";
+          msg.style.color = "red";
+        }
+      } catch (err) {
+        msg.innerText = "Error connecting to server";
+        msg.style.color = "red";
       }
     }
   </script>
-
 </body>
+
 </html>

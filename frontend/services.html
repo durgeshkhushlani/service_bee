@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Service Bee - Browse Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Service Bee</div>
+        <div class="nav-links">
+            <!-- Links injected by script.js -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Available Services</h2>
+
+        <div class="filters">
+            <input type="text" id="search" placeholder="Search services...">
+            <select id="category">
+                <option value="">All Categories</option>
+                <option value="Cleaning">Cleaning</option>
+                <option value="Plumbing">Plumbing</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Moving">Moving</option>
+            </select>
+            <input type="number" id="minPrice" placeholder="Min Price">
+            <input type="number" id="maxPrice" placeholder="Max Price">
+            <button id="filterBtn">Filter</button>
+        </div>
+
+        <div id="service-list" class="service-grid">
+            <!-- Services will be loaded here -->
+            <p>Loading services...</p>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalTitle">Book Service</h3>
+            <p id="modalPrice"></p>
+            <form id="bookingForm">
+                <input type="hidden" id="serviceId">
+                <label>Date</label>
+                <input type="date" id="bookingDate" required>
+                <label>Notes</label>
+                <textarea id="bookingNotes" placeholder="Any specific instructions?"></textarea>
+                <button type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js?v=1"></script>
+</body>
+
+</html>

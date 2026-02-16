@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Service Bee - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<h1>You are logged in</h1>
+    <nav class="navbar">
+        <div class="logo">Service Bee</div>
+        <div class="nav-links">
+            <!-- Links injected by script.js -->
+        </div>
+    </nav>
 
-<script>
-  const token = localStorage.getItem("token");
-  if (!token) {
-    window.location.href = "index.html";
-  }
-</script>
+    <div class="dashboard-container">
+        <h1>Welcome, <span id="userName">User</span>!</h1>
+        <p>What would you like to do today?</p>
 
+        <div class="dashboard-cards">
+            <div class="card" onclick="window.location.href='services.html'">
+                <h3>Find a Service</h3>
+                <p>Browse our list of professional services.</p>
+            </div>
+            <div class="card" onclick="window.location.href='bookings.html'">
+                <h3>My Bookings</h3>
+                <p>View and manage your appointments.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=1"></script>
 </body>
+
 </html>

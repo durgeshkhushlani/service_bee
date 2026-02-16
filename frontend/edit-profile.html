@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Service Bee - Edit Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .profile-form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .profile-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .profile-form button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .profile-form button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Service Bee</div>
+        <div class="nav-links">
+            <!-- Links injected by script.js -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="profile-form-container">
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm" class="profile-form">
+                <label>Full Name</label>
+                <input type="text" id="profileName" required>
+
+                <label>Email (Read-only)</label>
+                <input type="email" id="profileEmail" readonly style="opacity: 0.7; cursor: not-allowed;">
+
+                <label>New Password (Optional)</label>
+                <input type="password" id="profilePassword" placeholder="Leave blank to keep current">
+
+                <label>Confirm New Password</label>
+                <input type="password" id="profileConfirmPassword" placeholder="Confirm new password">
+
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js?v=2"></script>
+</body>
+
+</html>

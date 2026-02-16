@@ -1,77 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Service Bee - Auth</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
 
-<div class="auth-container">
-    <h1>Service Bee</h1>
-    <p class="subtitle">Local Services, Simplified</p>
+<body class="auth-body">
 
-    
-    <!-- LOGIN FORM -->
-    <form id="loginForm" class="auth-form">
-        <h2>Login</h2>
+    <!-- Theme Toggle (Absolute Positioned) -->
+    <button id="themeToggle" class="theme-toggle"
+        style="position: absolute; top: 20px; right: 20px; background: var(--card-bg); border: 1px solid var(--border-color);">🌗</button>
 
-        <label>Login As</label>
-        <select id="loginRole">
-            <option value="user">User</option>
-            <option value="company">Service Provider</option>
-        </select>
+    <div class="auth-container">
+        <h1 class="logo" style="text-align: center; margin-bottom: 5px;">Service Bee</h1>
+        <p class="subtitle" style="text-align: center; color: var(--text-muted); margin-bottom: 15px;">Local Services,
+            Simplified</p>
 
-        <label>Email</label>
-        <input type="email" placeholder="Enter email" required>
+        <!-- LOGIN FORM -->
+        <form id="loginForm" class="auth-form">
+            <h2>Login</h2>
 
-        <label>Password</label>
-        <input type="password" placeholder="Enter password" required>
+            <label>Login As</label>
+            <select id="loginRole">
+                <option value="user">User</option>
+                <option value="company">Service Provider</option>
+            </select>
 
-        <button type="submit">Login</button>
+            <label>Email</label>
+            <input type="email" placeholder="Enter email" required>
 
-        <p class="switch-text">
-            Don’t have an account?
-            <a href="#" id="showSignup">Sign up</a>
-        </p>
-    </form>
+            <label>Password</label>
+            <input type="password" placeholder="Enter password" required>
 
-    <!-- SIGNUP FORM -->
-    <form id="signupForm" class="auth-form hidden">
-        <h2>Sign Up</h2>
+            <button type="submit">Login</button>
 
-        <label>Register As</label>
-        <select id="signupRole">
-            <option value="user">User</option>
-            <option value="company">Service Provider</option>
-        </select>
+            <p class="switch-text">
+                Don’t have an account?
+                <a href="#" id="showSignup">Sign up</a>
+            </p>
+        </form>
 
-        <label>Full Name</label>
-        <input type="text" placeholder="Enter full name" required>
+        <!-- SIGNUP FORM -->
+        <form id="signupForm" class="auth-form hidden">
+            <h2>Sign Up</h2>
 
-        <div id="companyFields" class="hidden">
-            <label>Company Name</label>
-            <input type="text" placeholder="Enter company name">
+            <label>Register As</label>
+            <select id="signupRole">
+                <option value="user">User</option>
+                <option value="company">Service Provider</option>
+            </select>
 
-            <label>Service Type</label>
-            <input type="text" placeholder="e.g. Plumber, Electrician">
-        </div>
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter full name" required>
 
-        <label>Email</label>
-        <input type="email" placeholder="Enter email" required>
+            <div id="companyFields" class="hidden">
+                <label>Company Name</label>
+                <input type="text" placeholder="Enter company name">
 
-        <label>Password</label>
-        <input type="password" placeholder="Create password" required>
+                <label>Service Type</label>
+                <input type="text" placeholder="e.g. Plumber, Electrician">
+            </div>
 
-        <button type="submit">Sign Up</button>
+            <label>Email</label>
+            <input type="email" placeholder="Enter email" required>
 
-        <p class="switch-text">
-            Already have an account?
-            <a href="#" id="showLogin">Login</a>
-        </p>
-    </form>
-</div>
+            <label>Password</label>
+            <input type="password" placeholder="Create password" required>
 
-<script src="script.js"></script>
+            <button type="submit">Sign Up</button>
+
+            <p class="switch-text">
+                Already have an account?
+                <a href="#" id="showLogin">Login</a>
+            </p>
+        </form>
+    </div>
+
+    <script src="script.js?v=1"></script>
 </body>
+
 </html>

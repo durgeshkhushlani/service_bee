@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Service Bee - My Bookings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Service Bee</div>
+        <div class="nav-links">
+            <!-- Links injected by script.js -->
+        </div>
+    </nav>
+
+    <!-- Booking History -->
+    <div class="container" id="booking-history-container">
+        <h2>Pending Requests</h2>
+        <div id="booking-list-pending" class="service-grid">
+            <p>Loading pending bookings...</p>
+        </div>
+
+        <h2 style="margin-top: 40px;">Confirmed Bookings</h2>
+        <div id="booking-list-confirmed" class="service-grid">
+            <p>Loading confirmed bookings...</p>
+        </div>
+
+        <h2 style="margin-top: 40px;">Past Bookings (Completed/Cancelled)</h2>
+        <div id="booking-list-past" class="service-grid">
+            <p>Loading past bookings...</p>
+        </div>
+    </div>
+
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeReviewModal()">&times;</span>
+            <h3 id="reviewModalTitle">Rate Service</h3>
+            <form id="reviewForm">
+                <input type="hidden" id="reviewBookingId">
+
+                <label>Rating:</label>
+                <select id="reviewRating" required>
+                    <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
+                    <option value="4">⭐⭐⭐⭐ (Good)</option>
+                    <option value="3">⭐⭐⭐ (Average)</option>
+                    <option value="2">⭐⭐ (Poor)</option>
+                    <option value="1">⭐ (Terrible)</option>
+                </select>
+
+                <label>Comment:</label>
+                <textarea id="reviewComment" rows="3" placeholder="Share your experience..." required></textarea>
+
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js?v=1"></script>
+</body>
+
+</html>
